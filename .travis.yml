@@ -10,4 +10,4 @@ jobs:
         - docker tag myportfolio $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
         - docker push $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
         - docker tag myportfolio $DOCKER_USERNAME/myportfolio
-        - docker push $DOCKER_USERNAME/myportfolio:2
+        - docker push $DOCKER_USERNAME/myportfolio:latest
