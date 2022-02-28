@@ -1,5 +1,13 @@
-language: ruby
-rvm:
- - 2.2
- - jruby
- 
+dist: trusty
+
+jobs:
+  include:
+    - stage: Docker build Stage
+      script: 
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build -t myportfolio .
+        - docker images
+        - docker tag myportfolio $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
+        - docker tag myportfolio $DOCKER_USERNAME/myportfolio
+        - docker push $DOCKER_USERNAME/myportfolio:lastest
