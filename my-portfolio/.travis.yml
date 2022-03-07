@@ -10,6 +10,7 @@ jobs:
   include:
     - stage:
       before_scripts:
+        - cd my-portfolio
         - npm install
       script:
         - npm test
@@ -17,6 +18,7 @@ jobs:
         - echo "Test Success!"
     - stage: Docker build Stage
       script: 
+        - cd my-portfolio
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker build -t myportfolio .
         - docker images
