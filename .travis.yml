@@ -1,6 +1,7 @@
 #dist: trusty
 language: node_js
-
+before_install:
+  - cd my-portfolio
 node_js:
   - "12"
 sudo: required
