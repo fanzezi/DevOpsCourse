@@ -2,19 +2,21 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .Circle4 {
     animation: App-logo-spin infinite 20s linear;
+  }
+  .Circle2{
+    animation: rubberBand infinite 20s linear;
+  }
+  .Circle5{
+    transform-origin: top;
+    animation: orbit infinte 20s;
   }
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #011030;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,9 +25,52 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.Wrapper{
+  top: 50px;
+  margin: 0 auto;
+    position: relative;
+    width: 10em; height: 10em;
+}
 
-.App-link {
-  color: #61dafb;
+.Circle5{
+  z-index:3;
+  border-radius: 50%;
+  position: absolute;
+  top: 2.5em; left: 2.5em;
+  background-color: silver;
+  width: 4.5em; height: 4.5em;
+  animation: orbit 20s ease-in-out infinite;
+}
+.Circle4{
+  z-index:3;
+  border-radius: 50%;
+  position: absolute;
+  top: 2.5em; left: 2.5em;
+  background-color: rgb(132, 57, 155);
+  width: 2em; height: 2em;
+  animation: orbit 10s ease-in-out infinite;
+}
+.Circle3{
+  z-index:3;
+  border-radius: 50%;
+  position: absolute;
+  top: 2.5em; left: 2.5em;
+  background-color: rgb(255, 203, 255);
+  width: 3em; height: 3em;
+  animation: orbit 7s ease-in-out infinite;
+}
+.Circle2{
+  z-index:3;
+  border-radius: 50%;
+  position: absolute;
+  top: 2.5em; left: 2.5em;
+  background-color: rgb(148, 216, 255);
+  width: 1em; height: 1em;
+  animation: orbit 5s ease-in-out infinite;
+}
+h1{
+  z-index:2;
+  position: relative;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +80,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes orbit {
+  /*0% { transform: translateX(0); }*/
+  0% { transform: translateX(5em) translateY(-5em); }
+  50%{transform: translateX(-5em) translateY(5em); }
+  100% { transform: translateX(5em) translateY(-5em); z-index: 1; }
 }
