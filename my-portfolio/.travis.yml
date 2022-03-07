@@ -1,5 +1,7 @@
 #dist: trusty
 language: node_js
+before_install:
+  - cd my-portfolio
 node_js:
   - "12"
 sudo: required
@@ -10,7 +12,6 @@ jobs:
   include:
     - stage:
       before_scripts:
-        - cd my-portfolio
         - npm install
       script:
         - npm test
@@ -18,7 +19,6 @@ jobs:
         - echo "Test Success!"
     - stage: Docker build Stage
       script: 
-        - cd my-portfolio
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker build -t myportfolio .
         - docker images
